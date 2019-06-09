@@ -14,6 +14,10 @@
 		8440B85122A99C31007CDC41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8440B84F22A99C31007CDC41 /* LaunchScreen.storyboard */; };
 		8440B85C22A99C31007CDC41 /* game_buttonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440B85B22A99C31007CDC41 /* game_buttonTests.swift */; };
 		8440B86722A99C31007CDC41 /* game_buttonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440B86622A99C31007CDC41 /* game_buttonUITests.swift */; };
+		8440B87522A99D06007CDC41 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440B87422A99D06007CDC41 /* GameButton.swift */; };
+		8440B87722A9A094007CDC41 /* GameBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8440B87622A9A094007CDC41 /* GameBadge.swift */; };
+		846739E722AC4B8300A1F707 /* StylizedGameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846739E622AC4B8300A1F707 /* StylizedGameButton.swift */; };
+		846739E922AC4CB600A1F707 /* UIImageViewGlowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846739E822AC4CB600A1F707 /* UIImageViewGlowExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		8440B86222A99C31007CDC41 /* game-buttonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "game-buttonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8440B86622A99C31007CDC41 /* game_buttonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game_buttonUITests.swift; sourceTree = "<group>"; };
 		8440B86822A99C31007CDC41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8440B87422A99D06007CDC41 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
+		8440B87622A9A094007CDC41 /* GameBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBadge.swift; sourceTree = "<group>"; };
+		846739E622AC4B8300A1F707 /* StylizedGameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylizedGameButton.swift; sourceTree = "<group>"; };
+		846739E822AC4CB600A1F707 /* UIImageViewGlowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewGlowExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				8440B84622A99C30007CDC41 /* AppDelegate.swift */,
+				8440B87422A99D06007CDC41 /* GameButton.swift */,
+				846739E622AC4B8300A1F707 /* StylizedGameButton.swift */,
+				846739E822AC4CB600A1F707 /* UIImageViewGlowExtension.swift */,
+				8440B87622A9A094007CDC41 /* GameBadge.swift */,
 				8440B84822A99C30007CDC41 /* ViewController.swift */,
 				8440B84A22A99C30007CDC41 /* Main.storyboard */,
 				8440B84D22A99C31007CDC41 /* Assets.xcassets */,
@@ -257,7 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8440B84922A99C30007CDC41 /* ViewController.swift in Sources */,
+				846739E722AC4B8300A1F707 /* StylizedGameButton.swift in Sources */,
+				8440B87522A99D06007CDC41 /* GameButton.swift in Sources */,
 				8440B84722A99C30007CDC41 /* AppDelegate.swift in Sources */,
+				846739E922AC4CB600A1F707 /* UIImageViewGlowExtension.swift in Sources */,
+				8440B87722A9A094007CDC41 /* GameBadge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
