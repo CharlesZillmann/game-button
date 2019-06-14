@@ -27,15 +27,24 @@ import UIKit
 //***************        enum ButtonGraphicType : Int
 //***************************************************************
 enum ButtonGraphicType : Int {
-    case drawPurpleBadge
-    case drawGreenBadge
-    case drawBlueprintBadge
-    case drawWetAsphaltBadge
-    case drawGoldBadge
-    case drawAsusBlueGreyBadge
-    case drawRedBadge
-    case drawWhiteBadge
-    case drawBlackBadge
+    case PurpleBadge
+    case GreenBadge
+    case BlueprintBadge
+    case WetAsphaltBadge
+    case GoldBadge
+    case AsusBlueGreyBadge
+    case RedBadge
+    case WhiteBadge
+    case BlackBadge
+    
+    case House
+    case Planet
+    case Rose
+    
+    case Badge1
+    case Badge2
+    case Badge3
+    case Badge4
 }  // enum ButtonGraphicType : Int
 
 //***************************************************************
@@ -56,7 +65,7 @@ enum ButtonStyle : Int {
 //*******************************************************************************************
 //*******************************************************************************************
 class StylizedGameButton: GameButton {
-    var btnGraphicType      : ButtonGraphicType         = ButtonGraphicType.drawGoldBadge
+    var btnGraphicType      : ButtonGraphicType         = ButtonGraphicType.GoldBadge
     var btnUserGlowState    : Int                       = -1
     
     //***************************************************************
@@ -106,25 +115,48 @@ class StylizedGameButton: GameButton {
     //***************************************************************
     func getGameImage( theGraphic : ButtonGraphicType ) -> UIImage {
         switch theGraphic {
-        case ButtonGraphicType.drawPurpleBadge          :
+        case ButtonGraphicType.PurpleBadge          :
             return GameBadge.imageOfPurpleBadge
-        case ButtonGraphicType.drawGreenBadge           :
+        case ButtonGraphicType.GreenBadge           :
             return GameBadge.imageOfGreenBadge
-        case ButtonGraphicType.drawBlueprintBadge       :
+        case ButtonGraphicType.BlueprintBadge       :
             return GameBadge.imageOfBlueprintBadge
-        case ButtonGraphicType.drawWetAsphaltBadge      :
+        case ButtonGraphicType.WetAsphaltBadge      :
             return GameBadge.imageOfWetAsphaltBadge
-        case ButtonGraphicType.drawGoldBadge            :
+        case ButtonGraphicType.GoldBadge            :
             return GameBadge.imageOfGoldBadge
-        case ButtonGraphicType.drawAsusBlueGreyBadge    :
+        case ButtonGraphicType.AsusBlueGreyBadge    :
             return GameBadge.imageOfAsusBlueGreyBadge
-        case ButtonGraphicType.drawRedBadge             :
+        case ButtonGraphicType.RedBadge             :
             return GameBadge.imageOfRedBadge
-        case ButtonGraphicType.drawWhiteBadge           :
+        case ButtonGraphicType.WhiteBadge           :
             return GameBadge.imageOfWhiteBadge
-        case ButtonGraphicType.drawBlackBadge           :
+        case ButtonGraphicType.BlackBadge           :
             return GameBadge.imageOfBlackBadge
+            
+        case ButtonGraphicType.Planet:
+            return GameBadge.imageOfNA
+            
+        case ButtonGraphicType.Rose          :
+            return GameBadge.imageOfNA
+        case ButtonGraphicType.House                :
+            if let myImage : UIImage = UIImage(named:"House") {
+                return myImage
+            } else {
+                return GameBadge.imageOfNA
+            }
+            
+        case ButtonGraphicType.Badge1        :
+            return GameBadge.imageOfBadge1
+        case ButtonGraphicType.Badge2        :
+            return GameBadge.imageOfBadge2
+        case ButtonGraphicType.Badge3        :
+            return GameBadge.imageOfBadge3
+        case ButtonGraphicType.Badge4        :
+            return GameBadge.imageOfBadge4
+
         }  //switch btnGraphicType
+        
     }  // func getGameImage( theGraphic : ButtonGraphicType ) -> UIImage
     
     //***************************************************************
@@ -133,6 +165,7 @@ class StylizedGameButton: GameButton {
     func setButtonStyle( btnstyle : ButtonStyle) {
         
         switch btnstyle {
+            
         case ButtonStyle.Style1 :
             //GameButton Glowing effect Properties
             GlowDuration     = 3
@@ -147,8 +180,8 @@ class StylizedGameButton: GameButton {
             
             //Center Image
             CIGlowColor    = UIColor.red
-            CITopInset     = 20
-            CIBottomInset  = 20
+            CITopInset     = 0
+            CIBottomInset  = 0
             CILeftInset    = 20
             CIRightInset   = 20
             
@@ -156,24 +189,25 @@ class StylizedGameButton: GameButton {
             TLGlowColor   = UIColor.red
             TL_x          = 0
             TL_y          = 0
-            TL_w_pct      = 20
-            TL_h_pct      = 20
+            TL_w_pct      = 25
+            TL_h_pct      = 25
             
             //B2 Image
             TRGlowColor   = UIColor.red
             TR_x          = 0
             TR_y          = 0
-            TR_w_pct      = 20
-            TR_h_pct      = 20
+            TR_w_pct      = 25
+            TR_h_pct      = 25
             
-            setPrimaryImage(thePrimaryGraphic: ButtonGraphicType.drawGoldBadge)
-            setCenterImage(thePrimaryGraphic: ButtonGraphicType.drawWhiteBadge)
-            setTLBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawGreenBadge)
-            setTRBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawRedBadge )
+            setPrimaryImage(        thePrimaryGraphic : ButtonGraphicType.GoldBadge )
+            setCenterImage(         thePrimaryGraphic : ButtonGraphicType.House )
+            setTLBadgeViewImage(    thePrimaryGraphic : ButtonGraphicType.Badge4 )
+            setTRBadgeViewImage(    thePrimaryGraphic : ButtonGraphicType.Badge4 )
             CIisHidden         = false
             TLBadgeisHidden    = false
             TRBadgeisHidden    = false
             setupGameButtonImageViews()
+            
         case .Style2:
             //GameButton Glowing effect Properties
             GlowDuration     = 3
@@ -188,10 +222,10 @@ class StylizedGameButton: GameButton {
             
             //Center Image
             CIGlowColor    = UIColor.red
-            CITopInset     = 5
-            CIBottomInset  = 5
-            CILeftInset    = 5
-            CIRightInset   = 5
+            CITopInset     = -10
+            CIBottomInset  = 0
+            CILeftInset    = 20
+            CIRightInset   = 20
             
             //A1 Image
             TLGlowColor   = UIColor.red
@@ -207,14 +241,15 @@ class StylizedGameButton: GameButton {
             TR_w_pct      = 25
             TR_h_pct      = 25
             
-            setPrimaryImage(thePrimaryGraphic: ButtonGraphicType.drawPurpleBadge)
-            setCenterImage(thePrimaryGraphic: ButtonGraphicType.drawWhiteBadge)
-            setTLBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawGoldBadge)
-            setTRBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawRedBadge )
+            setPrimaryImage(        thePrimaryGraphic   : ButtonGraphicType.WhiteBadge  )
+            setCenterImage(         thePrimaryGraphic   : ButtonGraphicType.House       )
+            setTLBadgeViewImage(    thePrimaryGraphic   : ButtonGraphicType.Badge4      )
+            setTRBadgeViewImage(    thePrimaryGraphic   : ButtonGraphicType.Badge4      )
             CIisHidden         = false
             TLBadgeisHidden    = false
             TRBadgeisHidden    = false
             setupGameButtonImageViews()
+            
         case .Style3:
             //GameButton Glowing effect Properties
             GlowDuration     = 3
@@ -229,34 +264,35 @@ class StylizedGameButton: GameButton {
             
             //Center Image
             CIGlowColor    = UIColor.red
-            CITopInset     = 10
-            CIBottomInset  = 10
-            CILeftInset    = 10
-            CIRightInset   = 10
+            CITopInset     = 0
+            CIBottomInset  = 0
+            CILeftInset    = 20
+            CIRightInset   = 20
             
             //A1 Image
             TLGlowColor   = UIColor.red
             TL_x          = 0
             TL_y          = 0
-            TL_w_pct      = 30
-            TL_h_pct      = 30
+            TL_w_pct      = 25
+            TL_h_pct      = 25
             
             //B2 Image
             TRGlowColor   = UIColor.red
             TR_x          = 0
             TR_y          = 0
-            TR_w_pct      = 30
-            TR_h_pct      = 30
+            TR_w_pct      = 20
+            TR_h_pct      = 20
             
-            setPrimaryImage(thePrimaryGraphic: ButtonGraphicType.drawBlackBadge)
-            setCenterImage(thePrimaryGraphic: ButtonGraphicType.drawGoldBadge)
-            setTLBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawGoldBadge)
-            setTRBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawRedBadge )
+            setPrimaryImage(        thePrimaryGraphic   : ButtonGraphicType.BlackBadge  )
+            setCenterImage(         thePrimaryGraphic   : ButtonGraphicType.House      )
+            setTLBadgeViewImage(    thePrimaryGraphic   : ButtonGraphicType.Badge4      )
+            setTRBadgeViewImage(    thePrimaryGraphic   : ButtonGraphicType.Badge4      )
             CIisHidden         = false
             TLBadgeisHidden    = false
             TRBadgeisHidden    = false
             setupGameButtonImageViews()
-        case .Style4:
+            
+        case .Style4: //gold
             //GameButton Glowing effect Properties
             GlowDuration     = 3
             GlowCornerRadius = 5
@@ -270,10 +306,10 @@ class StylizedGameButton: GameButton {
             
             //Center Image
             CIGlowColor    = UIColor.yellow
-            CITopInset     = 15
-            CIBottomInset  = 15
-            CILeftInset    = 15
-            CIRightInset   = 15
+            CITopInset     = -8
+            CIBottomInset  = 0
+            CILeftInset    = 20
+            CIRightInset   = 20
             
             //A1 Image
             TLGlowColor   = UIColor.red
@@ -289,14 +325,17 @@ class StylizedGameButton: GameButton {
             TR_w_pct      = 25
             TR_h_pct      = 25
             
-            setPrimaryImage(thePrimaryGraphic: ButtonGraphicType.drawGreenBadge)
-            setCenterImage(thePrimaryGraphic: ButtonGraphicType.drawWhiteBadge)
-            setTLBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawAsusBlueGreyBadge)
-            setTRBadgeViewImage(thePrimaryGraphic: ButtonGraphicType.drawRedBadge )
+            setPrimaryImage(        thePrimaryGraphic   : ButtonGraphicType.GoldBadge   )
+            setCenterImage(         thePrimaryGraphic   : ButtonGraphicType.House       )
+            setTLBadgeViewImage(    thePrimaryGraphic   : ButtonGraphicType.Badge4      )
+            setTRBadgeViewImage(    thePrimaryGraphic   : ButtonGraphicType.Badge4      )
             CIisHidden         = false
             TLBadgeisHidden    = false
             TRBadgeisHidden    = false
             setupGameButtonImageViews()
+            
+//            layer.borderWidth = 1
+//            layer.borderColor = UIColor.black.cgColor
         }  // switch btnstyle
         
     }  // func setupCustomizedButtons()
@@ -325,45 +364,61 @@ class StylizedGameButton: GameButton {
             btnUserGlowState += 1
         case 1:
             //Glow Button Image
+            self.imageView?.shakeOnXAxis()
             StartPrimaryImageEdgeGlow( addedW : 14.0, addedH : 14.0 )
             btnUserGlowState += 1
         case 2:
             //Glow Button Center Image
-            StartCenterImageEdgeGlow( addedW : 14.0, addedH : 14.0 )
+            self.CenterImageView.rotate360Degrees()
+            self.CenterImageView.shakeOnYAxis()
+            StartCenterImageEdgeGlow( addedW : 7.0, addedH : 7.0 )
             btnUserGlowState += 1
         case 3:
             //Show Button Top Left Badge Image
             TLBadgeisHidden = false
+            self.CenterImageView.explode() {
+                self.CenterImageView.isHidden = false
+                self.TLBadgeView.shakeOnXAxis()
+            }
             btnUserGlowState += 1
         case 4:
             //Show & Glow Top Left Badge Image
             TLBadgeisHidden = false
+            self.TLBadgeView.shakeOnXAxis()
             StartTLBadgeEdgeGlow( addedW : 10.0, addedH : 10.0 )
             btnUserGlowState += 1
         case 5:
             //Show Button Top Right Badge Image
             TRBadgeisHidden = false
+            self.CenterImageView.breakGlass() {
+                self.CenterImageView.isHidden   = false
+                self.TRBadgeView.shakeOnXAxis()
+            }
             btnUserGlowState += 1
         case 6:
             //Show & Glow Top Right Badge Image
             TRBadgeisHidden = false
+            self.TRBadgeView.shakeOnXAxis()
             StartTRBadgeEdgeGlow( addedW : 10.0, addedH : 10.0 )
             btnUserGlowState += 1
         case 7:
             //Glow Button Image AND Show & Glow Top Left Badge Image
             TLBadgeisHidden = false
+            self.TLBadgeView.shakeOnXAxis()
             StartPrimaryImageEdgeGlow( addedW : 14.0, addedH : 14.0 )
             StartTLBadgeEdgeGlow( addedW : 10.0, addedH : 10.0 )
             btnUserGlowState += 1
         case 8:
             //Glow Button Image AND Show & Glow Top Right Badge Image
             TRBadgeisHidden = false
+            self.TRBadgeView.shakeOnXAxis()
             StartPrimaryImageEdgeGlow( addedW : 14.0, addedH : 14.0 )
             StartTRBadgeEdgeGlow( addedW : 10.0, addedH : 10.0 )
             btnUserGlowState += 1
         case 9:
             //Glow Button Center Image AND Show & Glow Top Right Badge Image
             TRBadgeisHidden = false
+            self.TRBadgeView.shakeOnXAxis()
             StartTRBadgeEdgeGlow( addedW : 10.0, addedH : 10.0 )
             StartCenterImageEdgeGlow( addedW : 14.0, addedH : 14.0 )
             btnUserGlowState += 1

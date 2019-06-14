@@ -18,9 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
-                            <userLayoutGuide location="432" affinity="minY"/>
-                            <userLayoutGuide location="324" affinity="minY"/>
-                            <userLayoutGuide location="216" affinity="minY"/>
+                            <userLayoutGuide location="363" affinity="minY"/>
+                            <userLayoutGuide location="227" affinity="minY"/>
+                            <userLayoutGuide location="636" affinity="minY"/>
                             <userLayoutGuide location="108" affinity="minY"/>
                         </userGuides>
                         <subviews>
@@ -50,9 +50,38 @@
                                     <action selector="gamebuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vOZ-yX-cXK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfh-AA-PGm" customClass="StylizedGameButton" customModule="game_button" customModuleProvider="target">
-                                <rect key="frame" x="157" y="166" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWH-i8-XK1" customClass="StylizedGameButton" customModule="game_button" customModuleProvider="target">
+                                <rect key="frame" x="133" y="166" width="143" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="BisHidden" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="graphicNumber">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="gamebuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="74K-xx-pTz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLi-V2-z8U" customClass="StylizedGameButton" customModule="game_button" customModuleProvider="target">
+                                <rect key="frame" x="89" y="299" width="223" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="AisHidden" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="BisHidden" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="graphicNumber">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="gamebuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYU-gT-rOO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfh-AA-PGm" customClass="StylizedGameButton" customModule="game_button" customModuleProvider="target">
+                                <rect key="frame" x="20" y="507" width="374" height="346"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="AisHidden" value="NO"/>
@@ -78,35 +107,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="gamebuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ge1-XT-7ez"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWH-i8-XK1" customClass="StylizedGameButton" customModule="game_button" customModuleProvider="target">
-                                <rect key="frame" x="157" y="274" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="BisHidden" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="graphicNumber">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="gamebuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="74K-xx-pTz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLi-V2-z8U" customClass="StylizedGameButton" customModule="game_button" customModuleProvider="target">
-                                <rect key="frame" x="157" y="382" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="AisHidden" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="BisHidden" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="graphicNumber">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="gamebuttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYU-gT-rOO"/>
                                 </connections>
                             </button>
                         </subviews>

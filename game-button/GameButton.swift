@@ -151,16 +151,48 @@ class GameButton : UIButton {
     }  //override init(frame: CGRect)
     
     //***************************************************************
+    //*********   func getTargetRectangle() -> CGRect
+    //***************************************************************
+    func getTargetRectangle() -> CGRect {
+        
+        //We have to find our target rectangle hat we will use to position our A & B image views
+        //The target Rectangle will be specified relative to the button's view coordinates
+        if imageView != nil && imageView?.image != nil {
+            
+            //First Choice is to put the A Image on the PRIMARY ImageView's Graphic
+            let myTIV   : UIImageView   = imageView!
+            let myTI    : UIImage       = imageView!.image!
+            return  AVMakeRect( aspectRatio : myTI.size,
+                                insideRect  : myTIV.frame )
+            
+        } else if CenterImageView.image != nil {
+            
+            //Second Choice is to put the A Image on the CENTER ImageView's Graphic
+            let myTIV   : UIImageView   = CenterImageView
+            let myTI    : UIImage       = CenterImageView.image!
+            return  AVMakeRect( aspectRatio : myTI.size,
+                                insideRect  : myTIV.bounds )
+            
+        } else {
+            
+            //Third Choice is to put the A Image on the BUTTON in the TOPLEFT Corner
+            return self.bounds
+            
+        } // IF
+        
+    }  // func getTargetRectangle() -> CGRect
+    
+    //***************************************************************
     //*********   func setupGameButtonImageViews()
     //***************************************************************
     func setupGameButtonImageViews( theCenterImage  : UIImage? = nil,
                                     theTLImage      : UIImage? = nil,
                                     theTRImage      : UIImage? = nil ) {
         
-        self.imageView?.contentMode         = .scaleAspectFit
-        self.CenterImageView.contentMode    = .scaleAspectFit
-        self.TLBadgeView.contentMode        = .scaleAspectFit
-        self.TRBadgeView.contentMode        = .scaleAspectFit
+        self.imageView?.contentMode         = UIView.ContentMode.scaleAspectFit
+        self.CenterImageView.contentMode    = UIView.ContentMode.scaleAspectFit
+        self.TLBadgeView.contentMode        = UIView.ContentMode.scaleAspectFit
+        self.TRBadgeView.contentMode        = UIView.ContentMode.scaleAspectFit
         
         let myBaseRect      : CGRect        = self.bounds
         
@@ -170,10 +202,10 @@ class GameButton : UIButton {
         if CenterImage != nil {
             CenterImageView.image   = CenterImage
             
-            let myCILInset = (CILeftInset/100) * myBaseRect.width
-            let myCITInset = (CITopInset/100) * myBaseRect.height
-            let myCIRInset = (CIRightInset/100) * myBaseRect.width
-            let myCIBInset = (CIBottomInset/100) * myBaseRect.height
+            let myCILInset  : CGFloat = (  CILeftInset/100   ) * myBaseRect.width
+            let myCITInset  : CGFloat = (  CITopInset/100    ) * myBaseRect.height
+            let myCIRInset  : CGFloat = (  CIRightInset/100  ) * myBaseRect.width
+            let myCIBInset  : CGFloat = (  CIBottomInset/100 ) * myBaseRect.height
             
             let myRect      : CGRect = CGRect( x        : myBaseRect.minX + myCILInset,
                                                y        : myBaseRect.minY + myCITInset,
@@ -182,81 +214,87 @@ class GameButton : UIButton {
             CenterImageView.frame = myRect
         }  //if CenterImage != nil
         
-        //We have to find our target rectangle hat we will use to position our A & B image views
-        //The target Rectangle will be specified relative to the button's view coordinates
-        var myTRect : CGRect        = self.bounds
+        setupTLBadge()
+        setupTRBadge()
         
-        if imageView != nil && imageView?.image != nil {
-            //First Choice is to put the A Image on the PRIMARY ImageView's Graphic
-            let myTIV   : UIImageView   = imageView!
-            let myTI    : UIImage       = imageView!.image!
-            myTRect = AVMakeRect( aspectRatio : myTI.size, insideRect : myTIV.frame)
-            
-        } else if CenterImageView.image != nil {
-            //Second Choice is to put the A Image on the CENTER ImageView's Graphic
-            let myTIV   : UIImageView   = CenterImageView
-            let myTI    : UIImage       = CenterImageView.image!
-            myTRect = AVMakeRect( aspectRatio : myTI.size, insideRect : myTIV.bounds)
-            
-        } else {
-            //Third Choice is to put the A Image on the BUTTON in the TOPLEFT Corner
-            myTRect = self.bounds
-        } // IF
+    }  //func setupGameButtonImageViews()
+    
+    //***************************************************************
+    //***************        func setupTLBadge()
+    //***************************************************************
+    func setupTLBadge() {
         
         //If we have an A image then we will add it to the A image view
         // and we will move the A image view to the TOP LEFT of the target rectangle
         // and we will adjust the A image view with insets as the user has specified
-        if TLImage != nil {
-            TLBadgeView.image        = TLImage
+        if TLImage != nil, let myImageView = self.imageView {
             
+            TLBadgeView.image   = TLImage
+
+            //We have to find our target rectangle hat we will use to position our A & B image views
+            //The target Rectangle will be specified relative to the button's view coordinates
+            let myTA        : CGRect    = myImageView.imagerectInView()
+
             ///////////////////////////////////////////////////////
             //The A ImageView Frame is specified as a percentage of the size of the Target Rectangle
-            let myAWidth  = myTRect.width * TL_w_pct/100
-            let myAHeight = myTRect.height * TL_h_pct/100
+            let myAWidth    : CGFloat   = myTA.width  * TL_w_pct/100
+            let myAHeight   : CGFloat   = myTA.height * TL_h_pct/100
             
             //Set the initial dimensions of the A imageview Frame so that we can find the final location of the A image within its frame
-            TLBadgeView.frame = CGRect( x       : myTRect.minX,
-                                        y       : myTRect.minY,
+            TLBadgeView.frame = CGRect( x       : myTA.minX,
+                                        y       : myTA.minY,
                                         width   : myAWidth,
                                         height  : myAHeight )
             
-            //Calculate the dimensions of the A image within the A imageview Frame
-            let myAIRect = AVMakeRect( aspectRatio : TLBadgeView.image!.size, insideRect : TLBadgeView.bounds );
-            
+            let myTLI : CGRect = TLBadgeView.imagerectInView()
+ 
             //Adjust the frame one last time so that the A Image is positioned correctly and apply A_x and A_y user specified adjustment values
-            TLBadgeView.frame = CGRect( x       : myTRect.minX - myAIRect.minX + TL_x,
-                                        y       : myTRect.minY - myAIRect.minY + TL_y,
+            TLBadgeView.frame = CGRect( x       : myTA.minX - (myTLI.minX - myTA.minX ) + TL_x,
+                                        y       : myTA.minY - (myTLI.minY - myTA.minY ) + TL_y,
                                         width   : myAWidth,
                                         height  : myAHeight )
-        }  //if TLImage != nil
+        }  // if TLImage != nil, let myImageView = self.imageView
+
+    }  // func setupTLBadge()
+    
+    //***************************************************************
+    //***************        func setupTRBadge()
+    //***************************************************************
+    func setupTRBadge() {
         
         //If we have an B image then we will add it to the B image view
         // and we will move the B image view to the TOP RIGHT of the target rectangle
         // and we will adjust the B image view with insets as the user has specified
-        if TRImage != nil {
-            TRBadgeView.image        = TRImage
+        if TRImage != nil, let myImageView = self.imageView  {
             
+            TRBadgeView.image        = TRImage
+
+            //We have to find our target rectangle hat we will use to position our A & B image views
+            //The target Rectangle will be specified relative to the button's view coordinates
+            let myTA   : CGRect     = myImageView.imagerectInView()
+
             ///////////////////////////////////////////////////////
             //The B ImageView Frame is specified as a percentage of the size of the Target Rectangle
-            let myBWidth  = myTRect.width * TR_w_pct/100
-            let myBHeight = myTRect.height * TR_w_pct/100
+            let myBWidth  : CGFloat = myTA.width   * TR_w_pct/100
+            let myBHeight : CGFloat = myTA.height  * TR_w_pct/100
             
             //Set the initial dimensions of the B imageview Frame so that we can find the final location of the B image within its frame
-            TRBadgeView.frame = CGRect( x       : myTRect.minX,
-                                        y       : myTRect.minY,
+            TRBadgeView.frame = CGRect( x       : myTA.minX,
+                                        y       : myTA.minY,
                                         width   : myBWidth,
                                         height  : myBHeight )
             
             //Calculate the dimensions of the B image within the B imageview Frame
-            let myBIRect = AVMakeRect(aspectRatio: TRBadgeView.image!.size , insideRect: TRBadgeView.bounds);
+            let myTRI : CGRect = TRBadgeView.imagerectInView()
             
-            TRBadgeView.frame = CGRect( x        : myTRect.maxX - myBIRect.width + TR_x,
-                                        y        : myTRect.minY - myBIRect.minY + TR_y,
+            TRBadgeView.frame = CGRect( x        : ( myTA.minX + myTA.width ) - ((myTRI.minX - myTA.minX) + myTRI.width) + TR_x,
+                                        y        : myTA.minY - (myTRI.minY - myTA.minY ) + TR_y,
                                         width    : myBWidth,
                                         height   : myBHeight )
-        }  //if TRImage != nil
+            
+        }  // if TRImage != nil, let myImageView = self.imageView
         
-    }  //func setupGameButtonImageViews()
+    }  // func setupTRBadge()
     
     //***************************************************************
     //***************        func setupButton()

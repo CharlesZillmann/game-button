@@ -89,6 +89,7 @@
 				8440B85A22A99C31007CDC41 /* game-buttonTests */,
 				8440B86522A99C31007CDC41 /* game-buttonUITests */,
 				8440B84422A99C30007CDC41 /* Products */,
+				84B156B722B4323800A9A2EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,6 +136,13 @@
 				8440B86822A99C31007CDC41 /* Info.plist */,
 			);
 			path = "game-buttonUITests";
+			sourceTree = "<group>";
+		};
+		84B156B722B4323800A9A2EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +463,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = "zillmann.charles.game-button";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -473,6 +482,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = "zillmann.charles.game-button";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
