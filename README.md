@@ -10,7 +10,9 @@ The botton has:
 ![](game-button.gif)
 
 Note:
-Included is a graphic by my good friend Brian Herrel. His artwork is copyrighted, all rights reserved. For purchase or gallery inquiries please contact brian.herrel@gmail.com 
+Included is a graphic by my good friend Brian Herrel. 
+His artwork is copyrighted, all rights reserved. 
+For purchase or gallery inquiries please contact brian.herrel@gmail.com 
 Brian's Artwork may be purchased @: https://www.zazzle.com/store/bherrel
 Follow Brian @: https://www.instagram.com/the_monochrome_rainbow_artist/?hl=en
 
