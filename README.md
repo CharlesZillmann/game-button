@@ -6,12 +6,11 @@ The botton has:
   1) Button Frame Glow - Sharp or Blury
   2) Central Image Glow - Sharp or Blury
   3) Top Left and/or Top Right Badge Glows - Sharp or Blury
-  
-![](game-button.gif)
-| - | - |
-|---|---|
-| I am text to the left  | ![](game-button.gif) |
-| ![](game-button.gif) | I am text to the right |
+
+| ![](game-button.gif) | The botton has:
+  1) Button Frame Glow - Sharp or Blury
+  2) Central Image Glow - Sharp or Blury
+  3) Top Left and/or Top Right Badge Glows - Sharp or Blury |
 
 Note:
 Included is a graphic by my good friend Brian Herrel. 
