@@ -8,6 +8,10 @@ The botton has:
   3) Top Left and/or Top Right Badge Glows - Sharp or Blury
   
 ![](game-button.gif)
+| - | - |
+|---|---|
+| I am text to the left  | ![](game-button.gif) |
+| ![](game-button.gif) | I am text to the right |
 
 Note:
 Included is a graphic by my good friend Brian Herrel. 
