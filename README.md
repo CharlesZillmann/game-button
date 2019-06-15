@@ -6,6 +6,11 @@ The botton has:
   1) Button Frame Glow - Sharp or Blury
   2) Central Image Glow - Sharp or Blury
   3) Top Left and/or Top Right Badge Glows - Sharp or Blury
-
-Included is a 
+  
 ![](game-button.gif)
+
+Note:
+Included is a graphic by my good friend Brian Herrel. His artwork is copyrighted, all rights reserved. For purchase or gallery inquiries please contact brian.herrel@gmail.com 
+Brian's Artwork may be purchased at: zazzle.com/bherrel
+Follow Brian @  https://www.instagram.com/the_monochrome_rainbow_artist/?hl=en
+
